@@ -13,12 +13,12 @@ int main()
 
 	String* Strings = nullptr;
 
-	enum menu { EXIT, PRINT, ADD, COUNT };
+	enum menu { EXIT, PRINT, ADD, COUNT};
 
 	do
 	{
 		system("cls");
-		cout << "1.Вывести все строки\n2.Ввести строку\n3.Количество строк\n4.Добавит строку \"Hola!\" с помощью конструктора перемещения\n0.Выход\n";
+		cout << "1.Вывести все строки\n2.Ввести строку\n3.Количество строк\n0.Выход\n";
 		cin >> user_choice;
 
 		switch (user_choice)
@@ -50,10 +50,10 @@ int main()
 			gets_s(string);
 
 			Strings[size - 1].set_str(string);
-
 			break;
 		case COUNT:
 			system("cls");
+
 			printf("Всего строк - %d\n", String::counter());
 			system("pause");
 			break;
@@ -63,19 +63,4 @@ int main()
 	} while (user_choice != 0);
 
 	return 0;
-}
-
-String* arr_maker(String Strings[], int& size)//Функция для прибавления новой строки в массив строк
-{
-	system("cls");
-
-	String* new_Strings = new String[++size];
-
-	for (int i{ 0 }; i < size - 1; i++)
-	{
-		new_Strings[i].set_str(Strings[i].get_str());
-	}
-	delete[] Strings;
-
-	return new_Strings;
 }
