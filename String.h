@@ -15,6 +15,7 @@ public:
 	String() : String(nullptr, 80) {}
 	String(int size_p) : String(nullptr, size_p) {}
 	String(char* str_p, int size_p);
+	String(const String& string);
 	String(String&& string);//Конструктор перемещения
 	//Модификаторы
 	void set_str(const char* str_p);

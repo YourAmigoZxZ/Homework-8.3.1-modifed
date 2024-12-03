@@ -1,6 +1,6 @@
 #include "String.h"
 
-String :: String(char* str_p, int size_p) : str{ new char[size] }, size{ size_p }
+String::String(char* str_p, int size_p) : str{ new char[size] }, size{ size_p }
 {
 	if (str_p)
 	{
@@ -8,6 +8,11 @@ String :: String(char* str_p, int size_p) : str{ new char[size] }, size{ size_p 
 	}
 
 	count_str++;
+}
+
+String::String(const String& string) : size{ string.size }, str { new char[size] }
+{
+	strcpy_s(str, size, string.str);
 }
 
 String::String(String&& string) : str{ string.str }, size{ string.size }
