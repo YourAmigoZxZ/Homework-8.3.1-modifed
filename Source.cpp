@@ -18,7 +18,7 @@ int main()
 	do
 	{
 		system("cls");
-		cout << "1.Вывести все строки\n2.Ввести строку\n3.Количество строк\n0.Выход\n";
+		cout << "1.Вывести все строки\n2.Ввести строку\n3.Количество строк\n4.Добавит строку \"Hola!\" с помощью конструктора перемещения\n0.Выход\n";
 		cin >> user_choice;
 
 		switch (user_choice)
@@ -65,7 +65,7 @@ int main()
 	return 0;
 }
 
-String* arr_maker(String Strings[], int& size)
+String* arr_maker(String Strings[], int& size)//Функция для прибавления новой строки в массив строк
 {
 	system("cls");
 

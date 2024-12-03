@@ -11,11 +11,16 @@ private:
 	int size;
 	char* str;
 public:
-
+	//Конструкторы
 	String() : String(nullptr, 80) {}
 	String(int size_p) : String(nullptr, size_p) {}
 	String(char* str_p, int size_p);
-
+	String(String&& string) : str { string.str }, size { string.size }//Конструктор перемещения
+	{
+		string.str = nullptr;
+		string.size = 0;
+	}
+	//Модификаторы
 	void set_str(const char* str_p);
 
 	void set_size(int size_p)
@@ -25,7 +30,7 @@ public:
 		delete[] str;
 		str = new char[size] { '\0' };
 	}
-
+	//Аксессоры
 	const char* get_str() const
 	{
 		return str;
@@ -34,18 +39,18 @@ public:
 	{
 		return size;
 	}
-
-	void print()
+	
+	void print()//Метод вывода
 	{
 		puts(str);
 	}
-
-	static int counter()
+	
+	static int counter()//Статическая функция для подсчёта объектов
 	{
 		return count_str;
 	}
-
-	~String()
+	
+	~String()//Деструктор
 	{
 		delete[] str;
 		count_str--;
